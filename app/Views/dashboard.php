@@ -1,0 +1,1 @@
+<h1>Welcome, <?php session('user')->name?></h1>
