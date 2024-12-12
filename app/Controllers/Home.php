@@ -197,10 +197,14 @@ class Home extends BaseController
     //     return $result;
     // }
     public function filterUser  () {
+        $id = $this->request->getPost('filterType4'); 
+        $name = $this->request->getPost('filterType3'); 
         $email = $this->request->getPost('filterType1'); 
         $mobile = $this->request->getPost('filterType2'); 
         $query = $this->user->select('*');
-        if (!empty($email) && !empty($mobile)) {
+        if (!empty($email) && !empty($mobile) && !empty($id) && !empty($name)) {
+            $query->like('id', $id);
+            $query->like('name', $name);
             $query->like('email', $email);
             $query->like('mobile', $mobile);
         }

@@ -299,7 +299,38 @@ if(session()->getFlashdata('success')){
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
       </div>
       <form action="<?php echo site_url('filterUser  ')?>" method="post">
+        <!-- //id -->
         <div class="modal-body">
+        <div class="mb-3">
+            <label for="filterType4">Id</label>
+            <select name="filterType4" class="form-select" aria-label="Default select example">
+              <option selected>Select Id</option>
+              <?php if($users) {
+                foreach($users as $user) {
+              ?>
+              <option value="<?php echo $user['id']; ?>"><?php echo $user['id']; ?></option>
+              <?php
+                }
+              }
+              ?>
+            </select>
+          </div>
+            <!-- //name -->
+          <div class="mb-3">
+            <label for="filterType3">Name</label>
+            <select name="filterType3" class="form-select" aria-label="Default select example">
+              <option selected>Select Name</option>
+              <?php if($users) {
+                foreach($users as $user) {
+              ?>
+              <option value="<?php echo $user['name']; ?>"><?php echo $user['name']; ?></option>
+              <?php
+                }
+              }
+              ?>
+            </select>
+          </div>
+         <!-- //email -->
           <div class="mb-3">
             <label for="filterType1">Email</label>
             <select name="filterType1" class="form-select" aria-label="Default select example">
@@ -314,6 +345,7 @@ if(session()->getFlashdata('success')){
               ?>
             </select>
           </div>
+            <!-- //mobile -->
           <div class="mb-3">
             <label for="filterType2">Mobile</label>
             <select name="filterType2" class="form-select" aria-label="Default select example">
@@ -329,6 +361,7 @@ if(session()->getFlashdata('success')){
             </select>
           </div>
         </div>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary" id="filterBtn">Search</button>
